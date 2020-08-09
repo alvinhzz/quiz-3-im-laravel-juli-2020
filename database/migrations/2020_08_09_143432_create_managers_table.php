@@ -15,8 +15,8 @@ class CreateManagersTable extends Migration
     {
         Schema::create('managers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_employee');
-            $table->unique('id_employee')->references('id')->on('employees');
+            $table->unsignedBigInteger('id_employee')->unique();
+            $table->foreign('id_employee')->references('id')->on('employees');
         });
     }
 

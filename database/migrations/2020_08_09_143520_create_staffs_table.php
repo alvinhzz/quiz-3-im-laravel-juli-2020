@@ -15,9 +15,9 @@ class CreateStaffsTable extends Migration
     {
         Schema::create('staffs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_employee');
+            $table->unsignedBigInteger('id_employee')->unique();
             $table->unsignedBigInteger('id_manager');
-            $table->unique('id_employee')->references('id')->on('employees');
+            $table->foreign('id_employee')->references('id')->on('employees');
             $table->foreign('id_manager')->references('id')->on('managers');
         });
     }

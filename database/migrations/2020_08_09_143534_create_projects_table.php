@@ -20,8 +20,8 @@ class CreateProjectsTable extends Migration
             $table->date('start_at');
             $table->date('deadline');
             $table->boolean('status')->default(0);
-            $table->unsignedBigInteger('id_manager');
-            $table->unique('id_manager')->references('id')->on('managers');
+            $table->unsignedBigInteger('id_manager')->unique();
+            $table->foreign('id_manager')->references('id')->on('managers');
         });
     }
 

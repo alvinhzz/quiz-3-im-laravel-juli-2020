@@ -12,12 +12,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',);
+Route::get('/', 'ProjectsController@welcome');
 
-Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
-Route::post('/items', 'ItemController@store'); // menyimpan data
-Route::get('/items', 'ItemController@index'); // menampilkan semua
-Route::get('/items/{id}', 'ItemController@show'); // menampilkan detail item dengan id 
-Route::get('/items/{id}/edit', 'ItemController@edit'); // menampilkan form untuk edit item
-Route::put('/items/{id}', 'ItemController@update'); // menyimpan perubahan dari form edit
-Route::delete('/items/{id}', 'ItemController@destroy'); // menghapus data dengan id
+Route::get('/projects', 'ProjectsController@index'); // menampilkan semua
+Route::get('/projects/create', 'ProjectsController@insert'); // menampilkan halaman form
+Route::post('/projects', 'ProjectsController@create'); // menyimpan data
+Route::get('/items/{id}', 'ProjectsController@show'); // menampilkan detail item dengan id 
+Route::get('/items/{id}/edit', 'ProjectsController@edit'); // menampilkan form untuk edit item
+Route::put('/items/{id}', 'ProjectsController@update'); // menyimpan perubahan dari form edit
+Route::delete('/items/{id}', 'ProjectsController@destroy'); // menghapus data dengan id
